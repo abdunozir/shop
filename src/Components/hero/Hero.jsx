@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import organ from "../img/organ1.jpg";
 import organ2 from "../img/organ2.jpg";
 import organ3 from "../img/organ3.jpg";
 import "./hero.scss";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+
 function Hero() {
+  let [slider, setSlider] = useState(0);
+  let slide = useRef(null);
+  // slide.current.scrollLeft = slider * 925;
+  let moveLeft = () => {
+    console.log(slide.current.scrollLeft);
+    if (slider !== 0) {
+    }
+    slide.current.scrollLeft = slider;
+  };
+  let moveRight = () => {
+    if (slider !== 3) {
+    }
+    slide.current.scrollLeft = slider;
+  };
   return (
     <div className="Hero__main">
-      <div
+      {/* <div
         id="carouselExampleCaptions"
         className="carousel slide carousel-fade "
         data-bs-ride="carousel"
@@ -90,6 +106,67 @@ function Hero() {
             aria-hidden="true"
           ></span>
           <span className="visually-hidden">Next</span>
+        </button>
+      </div> */}
+      <div ref={slide} className="hero__slider">
+        <button
+          onClick={() => (slider !== 0 ? setSlider(slider - 1) : slider)}
+          className="hero_left-btn"
+        >
+          <AiOutlineLeft />
+        </button>
+        <div
+          className="hero__slider-wrapper"
+          style={{ transform: `translatex(-${slider}00vw)` }}
+        >
+          <div
+            className="hero__slider-img"
+            style={{ backgroundImage: `url(${organ})` }}
+          >
+            {/* <img src={organ} alt="hero product image slider" /> */}
+            <div className="hero__slider-texts">
+              <h2 className="slider_title">Elessi Store</h2>
+              <p className="text_blue">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor,
+                eaque.
+              </p>
+              <button className="slider__dec-btn">Buy Now</button>
+            </div>
+          </div>
+          <div
+            className="hero__slider-img"
+            style={{ backgroundImage: `url(${organ2})` }}
+          >
+            {/* <img src={organ2} alt="hero product image slider" /> */}
+            <div className="hero__slider-texts">
+              <h2 className="slider_title">Elessi Store</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor,
+                eaque.
+              </p>
+              <button className="slider__dec-btn--black">Buy Now</button>
+            </div>
+          </div>
+          <div
+            className="hero__slider-img"
+            style={{ backgroundImage: `url(${organ3})` }}
+          >
+            {/* <img src={organ3} alt="hero product image slider" /> */}
+            <div className="hero__slider-texts">
+              <h2 className="slider_title">Elessi Store</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor,
+                eaque.
+              </p>
+              <button className="slider__dec-btn--black">Buy Now</button>
+            </div>
+          </div>
+        </div>
+        <button
+          onClick={() => (slider !== 2 ? setSlider(slider + 1) : slider)}
+          className="hero__right-btn"
+        >
+          <AiOutlineRight />
         </button>
       </div>
     </div>
