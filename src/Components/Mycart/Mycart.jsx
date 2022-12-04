@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-export default function MyCart({ serCard, card }) {
+export default function MyCart({ setCard, card }) {
   let [input, setInput] = useState(0);
 
   let removeCard = (id) => {
-    serCard([
+    setCard([
       ...card.filter((el) => {
         if (el.id !== id) {
           return el;

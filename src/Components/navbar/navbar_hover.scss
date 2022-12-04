@@ -1,7 +1,11 @@
 .home {
   z-index: 9999;
   position: relative;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   &:hover {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     .home__hover {
       display: block;
     }
@@ -16,9 +20,9 @@
   display: none;
   position: absolute;
   transform-origin: top right;
-  top: 35px;
+  top: 80px;
   left: -350px;
-  background-color: transparent;
+  background-color: white;
   padding: 40px 0;
   z-index: 999;
   width: 1200px;
@@ -45,7 +49,11 @@
 
 .shop {
   position: relative;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   &:hover {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     .shop-hover {
       display: block;
     }
@@ -55,9 +63,9 @@
   display: none;
   position: absolute;
   transform-origin: top right;
-  top: 40px;
+  top: 80px;
   left: -450px;
-  background-color: transparent;
+  background-color: white;
   padding: 40px 0;
   z-index: 999;
   width: 1200px;
@@ -109,32 +117,50 @@
 }
 
 .element {
-  position: relative;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   &:hover {
-    .element-hover {
-      display: block;
-    }
+    border-left: 1px solid black;
+    border-right: 1px solid black;
   }
 }
+.element:hover .element-hover {
+  display: flex;
+}
+
 .element-hover {
+  background-color: white;
   display: none;
+  // width: 50%;
   position: absolute;
-  transform-origin: top right;
-  top: 40px;
-  left: -540px;
-  background-color: transparent;
-  padding: 40px 0;
+  transform-origin: center;
+  top: 50px;
+  left: 0;
+  right: 0;
+  // background-color: transparent;
+  padding: 30px 0;
   z-index: 999;
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
+  align-items: flex-start;
+  justify-content: center;
 }
 .element-hover-inner {
+  width: 100%;
   background-color: #fff;
+  ul {
+    width: 100%;
+  }
 }
 
 .page {
   position: relative;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+
   &:hover {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     .page-hover {
       display: block;
     }
@@ -144,17 +170,17 @@
   display: none;
   position: absolute;
   transform-origin: top right;
-  top: 42px;
+  top: 80px;
   left: 0;
-  background-color: transparent;
-  padding: 30px 0;
+  background-color: white;
   z-index: 999;
   width: 200px;
   margin: 0 auto;
 }
 .page-hover-inner {
-  padding: 30px;
   background-color: #fff;
+  padding: 0 30px;
+
   ul {
     list-style: none;
     text-align: left;
@@ -172,9 +198,15 @@
 
 .vendors {
   position: relative;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   &:hover {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     .vendor-hover {
       display: flex;
+      align-items: flex-start;
+      justify-content: center;
     }
   }
 }
@@ -182,9 +214,9 @@
   display: none;
   position: absolute;
   transform-origin: top right;
-  top: 42px;
+  top: 80px;
   left: 0;
-  background-color: transparent;
+  background-color: white;
   padding: 30px 0;
   z-index: 999;
   width: 200px;
@@ -205,7 +237,7 @@
   position: absolute;
   transform-origin: top right;
   top: -30px;
-  right: -520px;
+  left: 0;
   padding: 30px 20px;
   z-index: 999;
   width: 500px;
@@ -235,7 +267,7 @@
   position: absolute;
   transform-origin: top right;
   top: -30px;
-  right: -520px;
+  left: 0;
   padding: 30px 20px;
   z-index: 999;
   width: 500px;
@@ -250,3 +282,19 @@
   flex-direction: row;
   gap: 40px;
 }
+
+@media (max-width: 950px) {
+  .vendors {
+    display: none;
+  }
+}
+@media (max-width: 840px) {
+  .page {
+    display: none;
+  }
+}
+@media (max-width: 776px) {
+  .navbar__main {
+    display: none;
+  }
+} ;

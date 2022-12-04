@@ -1,0 +1,21 @@
+.partner {
+  padding-top: 10px;
+  margin-bottom: 30px;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &__img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    transition: all 350ms ease;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

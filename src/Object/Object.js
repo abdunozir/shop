@@ -181,6 +181,7 @@ let Object = [
     to_price: 16.0,
     total: {},
     discount_price: 20.0,
+    discount_time_limit: 3,
     some_about:
       "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.",
     views: 57,
@@ -207,6 +208,7 @@ let Object = [
     to_price: 10.0,
     total: {},
     discount_price: 20.0,
+    discount_time_limit: 12,
     some_about:
       "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.",
     views: 26,
@@ -272,7 +274,7 @@ let Object = [
     from_price: 9.0,
     to_price: 15.0,
     total: {
-      half_kg: 15.0,
+      one_kg: 15.0,
       half_kg: 9.0,
     },
     discount_price: null,
@@ -298,7 +300,7 @@ let Object = [
     total: {
       one_kg: 18.0,
       half_kg: 15.0,
-      half_kg: 9.0,
+      half_2_kg: 9.0,
     },
     discount_price: null,
     some_about:
@@ -740,7 +742,7 @@ let Object = [
     Guaranteed: trust_badge,
     Description:
       "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters. On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    category: "SeaFood",
+    category: "Banana",
     sold: 10,
     sold_hours: 6,
     available: null,
@@ -842,8 +844,8 @@ let Object = [
     from_price: 6.0,
     to_price: 10.0,
     total: {
-      half_kg: 10.0,
-      half_2_kg: 6.0,
+      one_kg: 10.0,
+      half_kg: 6.0,
     },
     discount_price: null,
     some_about:
@@ -866,7 +868,7 @@ let Object = [
     from_price: 9.0,
     to_price: 15.0,
     total: {
-      half_kg: 15.0,
+      one_kg: 15.0,
       half_kg: 9.0,
     },
     discount_price: null,
@@ -892,7 +894,7 @@ let Object = [
     total: {
       one_kg: 18.0,
       half_kg: 15.0,
-      half_kg: 9.0,
+      half_2_kg: 9.0,
     },
     discount_price: null,
     some_about:

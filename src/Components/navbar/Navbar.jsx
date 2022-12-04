@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./navbar.scss";
-import "./Hover.scss";
+import "./navbar_hover.scss";
 import "./category.scss";
 
 import homeImg from "../img/home1.jpg";
@@ -168,7 +168,9 @@ function Navbar() {
           <nav className="navbar">
             <ul className="navbar__list list d-flex">
               <li className="list__item home">
-                Home <BsChevronDown className="bottom--arrow" />
+                <p className="element-title">
+                  Home <BsChevronDown className="bottom--arrow" />
+                </p>
                 <div className="home__hover slide-top">
                   <div className="home__inner-Back">
                     <div className="home-hover-box">
@@ -327,7 +329,9 @@ function Navbar() {
                 </div>
               </li>
               <li className="list__item shop">
-                Shop <BsChevronDown className="bottom--arrow" />
+                <div className="element-title">
+                  Shop <BsChevronDown className="bottom--arrow" />
+                </div>
                 <div className="shop-hover slide-top">
                   <div className="shop-hover-inner">
                     <ul className="shop-hover-list d-flex">
@@ -457,76 +461,70 @@ function Navbar() {
                 </div>
               </li>
               <li className="list__item element">
-                Elements <BsChevronDown className="bottom--arrow" />
-                <div className="element-hover  slide-top ">
+                <p className=" element-title">
+                  Elements <BsChevronDown className="bottom--arrow" />
+                </p>
+                <div className="element-hover ">
                   <div className="element-hover-inner ">
                     <ul className="shop-hover-list d-flex">
-                      <div className="shop-hover-divs">
+                      <li className="shop-hover-divs">
                         <h6 className="shop-titles">Blogs </h6>
-                        <li className="shop-hover-list-item">Standart</li>
-                        <li className="shop-hover-list-item">Mansory</li>
-                        <li className="shop-hover-list-item">Grid</li>
-                        <li className="shop-hover-list-item">List</li>
-                        <li className="shop-hover-list-item">Left sidebar</li>
-                        <li className="shop-hover-list-item">
+                        <p className="shop-hover-list-item">Standart</p>
+                        <p className="shop-hover-list-item">Mansory</p>
+                        <p className="shop-hover-list-item">Grid</p>
+                        <p className="shop-hover-list-item">List</p>
+                        <p className="shop-hover-list-item">Left sidebar</p>
+                        <p className="shop-hover-list-item">
                           Rigt sidebar <span className="span-new">new</span>
-                        </li>
-                      </div>
-                      <div className="shop-hover-divs">
+                        </p>
+                      </li>
+                      <li className="shop-hover-divs">
                         <h6 className="shop-titles">Header Type</h6>
-                        <li className="shop-hover-list-item">
+                        <p className="shop-hover-list-item">
                           Infinite scroll<span className="span-hot">hot</span>
-                        </li>
-                        <li className="shop-hover-list-item">Ajax Load More</li>
-                        <li className="shop-hover-list-item">
+                        </p>
+                        <p className="shop-hover-list-item">Ajax Load More</p>
+                        <p className="shop-hover-list-item">
                           Top SideBar<span className="span-new">new</span>
-                        </li>
-                        <li className="shop-hover-list-item">Left SideBar</li>
-                        <li className="shop-hover-list-item">
-                          Infinite scroll
-                        </li>
-                        <li className="shop-hover-list-item">Ajax Load More</li>
-                        <li className="shop-hover-list-item">Top SideBar</li>
-                      </div>
-                      <div className="shop-hover-divs">
+                        </p>
+                        <p className="shop-hover-list-item">Left SideBar</p>
+                        <p className="shop-hover-list-item">Infinite scroll</p>
+                        <p className="shop-hover-list-item">Ajax Load More</p>
+                        <p className="shop-hover-list-item">Top SideBar</p>
+                      </li>
+                      <li className="shop-hover-divs">
                         <h6 className="shop-titles">Theme Elements</h6>
-                        <li className="shop-hover-list-item">
-                          Infinite scroll
-                        </li>
-                        <li className="shop-hover-list-item">Ajax Load More</li>
-                        <li className="shop-hover-list-item">
+                        <p className="shop-hover-list-item">Infinite scroll</p>
+                        <p className="shop-hover-list-item">Ajax Load More</p>
+                        <p className="shop-hover-list-item">
                           Top SideBar<span className="span-hot">hot</span>
-                        </li>
-                        <li className="shop-hover-list-item">Left SideBar</li>
-                        <li className="shop-hover-list-item">
-                          Infinite scroll
-                        </li>
-                        <li className="shop-hover-list-item">Ajax Load More</li>
-                        <li className="shop-hover-list-item">Top SideBar</li>
-                      </div>
-                      <div className="shop-hover-divs">
+                        </p>
+                        <p className="shop-hover-list-item">Left SideBar</p>
+                        <p className="shop-hover-list-item">Infinite scroll</p>
+                        <p className="shop-hover-list-item">Ajax Load More</p>
+                        <p className="shop-hover-list-item">Top SideBar</p>
+                      </li>
+                      <li className="shop-hover-divs">
                         <h6 className="shop-titles">Theme elements</h6>
-                        <li className="shop-hover-list-item">
-                          Infinite scroll
-                        </li>
-                        <li className="shop-hover-list-item">Ajax Load More</li>
-                        <li className="shop-hover-list-item">
+                        <p className="shop-hover-list-item">Infinite scroll</p>
+                        <p className="shop-hover-list-item">Ajax Load More</p>
+                        <p className="shop-hover-list-item">
                           Top SideBar<span className="span-new">new</span>
-                        </li>
-                        <li className="shop-hover-list-item">Left SideBar</li>
-                        <li className="shop-hover-list-item">
-                          Infinite scroll
-                        </li>
-                        <li className="shop-hover-list-item">Ajax Load More</li>
-                        <li className="shop-hover-list-item">Top SideBar</li>
-                        <li className="shop-hover-list-item">Left SideBar</li>
-                      </div>
+                        </p>
+                        <p className="shop-hover-list-item">Left SideBar</p>
+                        <p className="shop-hover-list-item">Infinite scroll</p>
+                        <p className="shop-hover-list-item">Ajax Load More</p>
+                        <p className="shop-hover-list-item">Top SideBar</p>
+                        <p className="shop-hover-list-item">Left SideBar</p>
+                      </li>
                     </ul>
                   </div>
                 </div>
               </li>
               <li className="list__item page">
-                Pages <BsChevronDown className="bottom--arrow" />
+                <p className="element-title">
+                  Pages <BsChevronDown className="bottom--arrow" />
+                </p>
                 <div className="page-hover slide-top">
                   <div className="page-hover-inner">
                     <ul className="page-list">
@@ -545,7 +543,9 @@ function Navbar() {
                 </div>
               </li>
               <li className="list__item vendors">
-                Vendors <BsChevronDown className="bottom--arrow" />
+                <p className="element-title">
+                  Vendors <BsChevronDown className="bottom--arrow" />
+                </p>
                 <div className="vendor-hover slide-top">
                   <div className="page-hover-inner">
                     <ul className="page-list">

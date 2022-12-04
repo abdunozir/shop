@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import Object from "../../Object/Object";
 import About from "../About/About";
 import Categories from "../Categories/Categories";
+import Filter from "../filter/Filter";
 import FoodItem from "../FoodITem/FoodItem";
 import Footer from "../Footer/Footer";
 import Header from "../headerTop/Header";
@@ -14,11 +16,13 @@ import Products from "../Products/Products";
 // import Quickview from "../Quickview";
 import Sales from "../Sales/Sales";
 // import FoodItem from "../FoodItem";
+import "./main.scss";
 
 function Main() {
-  let [card, serCard] = useState([]);
+  let [obj, setObj] = useState([...Object]);
+  let [card, setCard] = useState([]);
   return (
-    <div>
+    <div className="root-child">
       <Header />
 
       <MainHeader />
@@ -26,7 +30,9 @@ function Main() {
       <Routes>
         <Route
           path="Quickview/:id"
-          element={<FoodItem serCard={serCard} card={card} />}
+          element={
+            <FoodItem setCard={setCard} card={card} obj={obj} setObj={setObj} />
+          }
         />
         <Route
           path="/"
@@ -35,16 +41,18 @@ function Main() {
               <Hero />
               <About />
               <Categories />
-              <Products serCard={serCard} card={card} />
-              <MyCart card={card} serCard={serCard} />
+              <Products setCard={setCard} card={card} />
+              <MyCart card={card} setCard={setCard} />
 
               <Sales />
               <Partners />
-              <Footer />
+              {/* <Footer /> */}
             </>
           }
         />
+        <Route path="filter/:id" element={<Filter obj={obj} />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

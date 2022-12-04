@@ -11,7 +11,6 @@ export default function Quickview() {
         aria-labelledby="offcanvasRightLabel"
       >
         <div className="quickview__bigbox">
-          
           <button
             type="button"
             className="quickview__xbtn"

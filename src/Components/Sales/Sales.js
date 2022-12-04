@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import cherry from "../../Images/cherrys.jpg";
 import Object from "../../Object/Object";
+import "./Sales.scss";
+
 function Sales() {
   return (
     <div className="sales">

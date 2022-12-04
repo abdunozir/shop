@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../Images/logo.png";
 import FooterBottom from "./FooterBottom";
 import FooterNav from "./FooterNav";
+import "./Footer.scss";
 
 function Footer() {
   return (

@@ -1,27 +1,39 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
-import obj from "../../Object/Object";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import ProductSlider from "../Products/ProductSlider";
 import "./FoodItem.scss";
 import FoodItemList from "./FoodItemList";
+import ItemCounter from "./ItemCounter/ItemCounter";
+import Timer from "./Timer/Timer";
 
-function FoodItem({ serCard, card }) {
+function FoodItem({ setCard, card, setObj, obj }) {
   let location = useLocation();
-
-  let [day, setDay] = useState("00");
-  let [soat, setSoat] = useState("00");
-  let [min, setMin] = useState("00");
-  let [secund, setSecund] = useState("00");
-  // let [secunds, setSecunds] = useState(0);
-
-  let interval = useRef();
-
-  const startTimer = () => {};
+  let [suggested, setSuggested] = useState("");
+  let [count, setCount] = useState(0);
+  useEffect(() => {
+    obj.map((el) => {
+      if (el.id == location.pathname.split("/").at(-1)) {
+        setSuggested(el.category);
+      }
+    });
+  }, []);
 
   let addtoCard = (el) => {
-    serCard([...card, el]);
-    console.log(card);
+    setCard([
+      ...card.map((product) => {
+        if (product.id === el.id && +count !== product.product_count) {
+          product.product_count = count;
+          return product;
+        }
+        return product;
+      }),
+    ]);
+    card.map((item) => {
+      if (item.id !== el.id) {
+        setCard([...card, { el, product_count: count }]);
+      }
+    });
   };
-
   return (
     <div>
       <ul className="violet_ul">
@@ -59,17 +71,22 @@ function FoodItem({ serCard, card }) {
                     </div>
                     <p className="violet__item-custom"> (1 customer review)</p>
                   </div>
-                  <div className="violet__item-prices">
-                    <del className="violet__item-prev__price">
-                      $
-                      {item.discount_price === null
-                        ? item.to_price
-                        : item.discount_price}
-                    </del>
-                    <ins className="violet__item-next__price">
-                      ${item.to_price}
-                    </ins>
-                  </div>
+                  {item.discount_price !== null ? (
+                    <div className="violet__item-prices">
+                      <del className="violet__item-prev__price">
+                        ${item.to_price}
+                      </del>
+                      <ins className="violet__item-next__price">
+                        ${item.discount_price}
+                      </ins>
+                    </div>
+                  ) : (
+                    <div className="violet__item-prices">
+                      <ins className="violet__item-next__price">
+                        ${item.to_price}
+                      </ins>
+                    </div>
+                  )}
                   <div
                     style={{
                       display: "flex",
@@ -84,35 +101,13 @@ function FoodItem({ serCard, card }) {
                     </p>
                   </div>
                   <p className="violet__item-about">{item.some_about}</p>
-                  <div
-                    className="violet__item-hurry__box"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      margin: "0 0 10px 0",
-                    }}
-                  >
-                    <i className="bx bx-time"></i>
-                    <p className="violet__item-hurry">Hurry up! Sale end in:</p>
-                  </div>
-                  <ul className="violet__date-list">
-                    <li className="violet__date-item">
-                      <p className="violet__date-date">{day}</p>
-                      <p className="violet__date-text">days</p>
-                    </li>
-                    <li className="violet__date-item">
-                      <p className="violet__date-date">{soat}</p>
-                      <p className="violet__date-text">hours</p>
-                    </li>
-                    <li className="violet__date-item">
-                      <p className="violet__date-date">{min}</p>
-                      <p className="violet__date-text">mins</p>
-                    </li>
-                    <li className="violet__date-item">
-                      <p className="violet__date-date">{secund}</p>
-                      <p className="violet__date-text">secs</p>
-                    </li>
-                  </ul>
+                  {item.discount_price !== null ? (
+                    <>
+                      <Timer />
+                    </>
+                  ) : (
+                    ""
+                  )}
                   <div className="violet__input-box">
                     <p className="violet__already">
                       Only <span> {item.available} </span>item(s) left in stock.{" "}
@@ -131,15 +126,13 @@ function FoodItem({ serCard, card }) {
                       className="violet__input-range"
                       style={{ display: "flex", alignItems: "center" }}
                     >
-                      <input
-                        className="violet__input-place"
-                        type="text"
-                        placeholder="1"
+                      <ItemCounter
+                        setCount={setCount}
+                        count={count}
+                        item={item}
+                        setObj={setObj}
+                        obj={obj}
                       />
-                      <div className="violet__range-btns">
-                        <button className="violet__range-btn">+</button>
-                        <button className="violet__range-btn">-</button>
-                      </div>
                     </div>
                     <button className="violet__item-btn">
                       <a
@@ -157,6 +150,106 @@ function FoodItem({ serCard, card }) {
                     </button>
                   </div>
                   <FoodItemList Guaranteed={item.Guaranteed} />
+                </div>
+              </li>
+            );
+          }
+        })}
+      </ul>
+      <div className="suggested-products-title">
+        <p>Related Products</p>
+      </div>
+      {obj.map((el) => {})}
+      <ul className="fproducts__list pb-4">
+        {obj.map((el) => {
+          if (el.category === suggested) {
+            return (
+              <li key={el.id} className="fproducts__item">
+                <div className="fproducts__realative">
+                  <ProductSlider el={el} />
+                  <button className="fproducts__hbtn">
+                    <i className="bx bx-heart"></i>
+                  </button>
+                  <div className="fproducts__mbox">
+                    <button
+                      className="fproducts__mbtn"
+                      aria-controls="offcanvasRight"
+                      data-bs-target="#offcanvasRight2"
+                      data-bs-toggle="offcanvas"
+                      onClick={() => addtoCard(el)}
+                    >
+                      <i className="bx bx-shopping-bag"></i>
+                    </button>
+                    <button
+                      data-bs-toggle="offcanvas"
+                      data-bs-target="#offcanvasRight1"
+                      aria-controls="offcanvasRight"
+                      className="fproducts__mbtn"
+                    >
+                      <i className="bx bx-low-vision"></i>
+                    </button>
+                    <button className="fproducts__mbtn">
+                      <i className="bx bx-refresh"></i>
+                    </button>
+                  </div>
+                </div>
+                <div className="fproducts__box">
+                  <Link className="fproducts__link" to={`Quickview/${el.id}`}>
+                    <h3 className="fproducts__subtitle">{el.name}</h3>
+                  </Link>
+                  <div className="fproducts__dflex">
+                    <div className="fproducts__dflex_price">
+                      {el.discount_price !== null ? (
+                        <del className="fproducts__price">
+                          ${el.discount_price}
+                        </del>
+                      ) : (
+                        ""
+                      )}
+                      <ins className="fproducts__price">${el.to_price}</ins>
+                    </div>
+                    <div className="fproducts__kgbox">
+                      {el.total.one_kg !== undefined ? (
+                        <button
+                          data-bs-toggle="offcanvas"
+                          data-bs-target="#offcanvasRight1"
+                          aria-controls="offcanvasRight"
+                          className="fproducts__kgbtn"
+                        >
+                          1<br /> kg
+                        </button>
+                      ) : (
+                        ""
+                      )}
+
+                      {el.total.half_kg !== undefined ? (
+                        <button
+                          data-bs-toggle="offcanvas"
+                          data-bs-target="#offcanvasRight1"
+                          aria-controls="offcanvasRight"
+                          className="fproducts__kgbtn"
+                        >
+                          500
+                          <br /> gr
+                        </button>
+                      ) : (
+                        ""
+                      )}
+
+                      {el.total.half_2_kg !== undefined ? (
+                        <button
+                          data-bs-toggle="offcanvas"
+                          data-bs-target="#offcanvasRight1"
+                          aria-controls="offcanvasRight"
+                          className="fproducts__kgbtn"
+                        >
+                          250 <br /> gr
+                        </button>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
                 </div>
               </li>
             );

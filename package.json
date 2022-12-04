@@ -22,7 +22,9 @@
     "react-modern-drawer": "^1.1.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-sticky": "^6.0.3",
     "sass": "^1.53.0",
+    "sticksy": "^0.2.0",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
