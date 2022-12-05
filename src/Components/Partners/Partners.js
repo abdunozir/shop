@@ -8,9 +8,10 @@ function Partners() {
   return (
     <div className="container">
       <div className="partner">
-        {PartnersObj.map((part) => {
+        {PartnersObj.map((part, i) => {
           return (
             <img
+              key={i}
               className="partner__img"
               src={part.image}
               alt="partners-image"

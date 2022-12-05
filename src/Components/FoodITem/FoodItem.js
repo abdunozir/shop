@@ -6,7 +6,7 @@ import FoodItemList from "./FoodItemList";
 import ItemCounter from "./ItemCounter/ItemCounter";
 import Timer from "./Timer/Timer";
 
-function FoodItem({ setCard, card, setObj, obj }) {
+function FoodItem({ setCard, card, setObj, obj, wish, setWish }) {
   let location = useLocation();
   let [suggested, setSuggested] = useState("");
   let [count, setCount] = useState(0);
@@ -19,20 +19,27 @@ function FoodItem({ setCard, card, setObj, obj }) {
   }, []);
 
   let addtoCard = (el) => {
-    setCard([
-      ...card.map((product) => {
-        if (product.id === el.id && +count !== product.product_count) {
-          product.product_count = count;
+    setObj([
+      ...obj.map((product) => {
+        if (product.id === el.id) {
+          product.card = true;
           return product;
         }
         return product;
       }),
     ]);
-    card.map((item) => {
-      if (item.id !== el.id) {
-        setCard([...card, { el, product_count: count }]);
-      }
-    });
+  };
+
+  let addWish = (el) => {
+    setObj([
+      ...obj.map((product) => {
+        if (product.id === el.id) {
+          product.like = true;
+          return product;
+        }
+        return product;
+      }),
+    ]);
   };
   return (
     <div>
@@ -122,7 +129,7 @@ function FoodItem({ setCard, card, setObj, obj }) {
                       width: "100%",
                     }}
                   >
-                    <div
+                    {/* <div
                       className="violet__input-range"
                       style={{ display: "flex", alignItems: "center" }}
                     >
@@ -133,7 +140,7 @@ function FoodItem({ setCard, card, setObj, obj }) {
                         setObj={setObj}
                         obj={obj}
                       />
-                    </div>
+                    </div> */}
                     <button className="violet__item-btn">
                       <a
                         className="text-light"
@@ -142,12 +149,16 @@ function FoodItem({ setCard, card, setObj, obj }) {
                         Buy now
                       </a>
                     </button>
-                    <button
-                      onClick={() => addtoCard(item)}
-                      className="violet__item-btn"
-                    >
-                      Add to Cart
-                    </button>
+                    {item.card === true ? (
+                      ""
+                    ) : (
+                      <button
+                        onClick={() => addtoCard(item)}
+                        className="violet__item-btn"
+                      >
+                        Add to Cart
+                      </button>
+                    )}
                   </div>
                   <FoodItemList Guaranteed={item.Guaranteed} />
                 </div>
@@ -167,25 +178,28 @@ function FoodItem({ setCard, card, setObj, obj }) {
               <li key={el.id} className="fproducts__item">
                 <div className="fproducts__realative">
                   <ProductSlider el={el} />
-                  <button className="fproducts__hbtn">
-                    <i className="bx bx-heart"></i>
-                  </button>
-                  <div className="fproducts__mbox">
+                  {el.like === true ? (
+                    ""
+                  ) : (
                     <button
-                      className="fproducts__mbtn"
-                      aria-controls="offcanvasRight"
-                      data-bs-target="#offcanvasRight2"
-                      data-bs-toggle="offcanvas"
-                      onClick={() => addtoCard(el)}
+                      className="fproducts__hbtn"
+                      onClick={() => addWish(el)}
                     >
-                      <i className="bx bx-shopping-bag"></i>
+                      <i className="bx bx-heart"></i>
                     </button>
-                    <button
-                      data-bs-toggle="offcanvas"
-                      data-bs-target="#offcanvasRight1"
-                      aria-controls="offcanvasRight"
-                      className="fproducts__mbtn"
-                    >
+                  )}
+                  <div className="fproducts__mbox">
+                    {el.card === true ? (
+                      ""
+                    ) : (
+                      <button
+                        className="fproducts__mbtn"
+                        onClick={() => addtoCard(el)}
+                      >
+                        <i className="bx bx-shopping-bag"></i>
+                      </button>
+                    )}
+                    <button className="fproducts__mbtn">
                       <i className="bx bx-low-vision"></i>
                     </button>
                     <button className="fproducts__mbtn">

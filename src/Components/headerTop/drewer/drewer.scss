@@ -4,6 +4,7 @@
 
 .drewer__inner {
   margin: 20px;
+  overflow: auto;
 }
 .closer_btn {
   padding: 10px 15px;
@@ -65,4 +66,8 @@
   .closer_btn {
     left: 0;
   }
+}
+
+.wishlist-count {
+  text-align: left;
 }

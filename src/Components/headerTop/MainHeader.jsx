@@ -10,7 +10,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Drewer from "./drewer/drewer";
 import MobileMenu from "./MobileMenu/MobileMenu";
 
-function MainHeader() {
+function MainHeader({ obj, setObj, setCard, card, wish, setWish }) {
   return (
     <div className="container">
       <div className="header__main d-flex">
@@ -32,8 +32,20 @@ function MainHeader() {
 
         <div className="Cart">
           <BsPersonCircle className="header__login-personIcon" />
-          <Drewer type={"My Carts"} />
-          <Drewer type={"Wishlist"} />
+          <Drewer
+            type={"My Carts"}
+            obj={obj}
+            setObj={setObj}
+            setCard={setCard}
+            card={card}
+          />
+          <Drewer
+            type={"Wishlist"}
+            obj={obj}
+            setObj={setObj}
+            wish={wish}
+            setWish={setWish}
+          />
         </div>
       </div>
     </div>

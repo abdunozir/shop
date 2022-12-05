@@ -79,6 +79,7 @@ let Object = [
     available: 59,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 2,
@@ -100,6 +101,7 @@ let Object = [
     available: null,
     star: 5,
     like: false,
+    card: false,
   },
   {
     id: 3,
@@ -125,6 +127,7 @@ let Object = [
     available: null,
     star: 3,
     like: false,
+    card: false,
   },
 
   {
@@ -147,6 +150,7 @@ let Object = [
     available: null,
     star: 2,
     like: false,
+    card: false,
   },
   {
     id: 5,
@@ -172,6 +176,7 @@ let Object = [
     available: null,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 6,
@@ -194,6 +199,7 @@ let Object = [
     available: 87,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 7,
@@ -221,6 +227,7 @@ let Object = [
     available: 84,
     star: 5,
     like: false,
+    card: false,
   },
   {
     id: 8,
@@ -242,6 +249,7 @@ let Object = [
     available: null,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 9,
@@ -266,6 +274,7 @@ let Object = [
     available: null,
     star: 2,
     like: false,
+    card: false,
   },
   {
     id: 10,
@@ -290,6 +299,7 @@ let Object = [
     available: null,
     star: 3,
     like: false,
+    card: false,
   },
   {
     id: 11,
@@ -315,6 +325,7 @@ let Object = [
     available: 80,
     star: 5,
     like: false,
+    card: false,
   },
   {
     id: 12,
@@ -339,6 +350,7 @@ let Object = [
     available: null,
     star: 3,
     like: false,
+    card: false,
   },
   {
     id: 13,
@@ -363,6 +375,7 @@ let Object = [
     available: null,
     star: 3,
     like: false,
+    card: false,
   },
   {
     id: 14,
@@ -384,6 +397,7 @@ let Object = [
     available: null,
     star: 5,
     like: false,
+    card: false,
   },
   {
     id: 15,
@@ -409,6 +423,7 @@ let Object = [
     available: 59,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 16,
@@ -438,6 +453,7 @@ let Object = [
     available: 87,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 17,
@@ -459,6 +475,7 @@ let Object = [
     sold_hours: 17,
     like: false,
     star: 5,
+    card: false,
   },
   {
     id: 18,
@@ -479,7 +496,7 @@ let Object = [
     available: 12,
     sold_hours: 17,
     like: false,
-
+    card: false,
     star: 3,
   },
   {
@@ -502,6 +519,7 @@ let Object = [
     available: 18,
     like: false,
     star: 4,
+    card: false,
   },
   {
     id: 20,
@@ -523,6 +541,7 @@ let Object = [
     available: 60,
     like: false,
     star: 5,
+    card: false,
   },
   {
     id: 21,
@@ -544,6 +563,7 @@ let Object = [
     sold_hours: 6,
     like: false,
     star: 3,
+    card: false,
   },
   {
     id: 22,
@@ -565,6 +585,7 @@ let Object = [
     sold_hours: 18,
     like: false,
     star: 3,
+    card: false,
   },
   {
     id: 23,
@@ -586,6 +607,7 @@ let Object = [
     available: null,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 24,
@@ -607,6 +629,7 @@ let Object = [
     available: 87,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 25,
@@ -632,6 +655,7 @@ let Object = [
     available: 59,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 26,
@@ -653,6 +677,7 @@ let Object = [
     available: null,
     star: 5,
     like: false,
+    card: false,
   },
   {
     id: 27,
@@ -678,6 +703,7 @@ let Object = [
     available: null,
     star: 3,
     like: false,
+    card: false,
   },
   {
     id: 28,
@@ -703,6 +729,7 @@ let Object = [
     available: null,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 29,
@@ -727,6 +754,7 @@ let Object = [
     available: null,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 30,
@@ -748,6 +776,7 @@ let Object = [
     available: null,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 31,
@@ -769,6 +798,7 @@ let Object = [
     available: 98,
     star: 4,
     like: false,
+    card: false,
   },
   {
     id: 32,
@@ -790,6 +820,7 @@ let Object = [
     available: 67,
     star: 2,
     like: false,
+    card: false,
   },
   {
     id: 33,
@@ -815,6 +846,7 @@ let Object = [
     available: 80,
     star: 5,
     like: false,
+    card: false,
   },
   {
     id: 34,
@@ -836,6 +868,7 @@ let Object = [
     available: null,
     star: 5,
     like: false,
+    card: false,
   },
   {
     id: 35,
@@ -860,6 +893,7 @@ let Object = [
     available: null,
     star: 2,
     like: false,
+    card: false,
   },
   {
     id: 36,
@@ -884,6 +918,7 @@ let Object = [
     available: null,
     star: 3,
     like: false,
+    card: false,
   },
   {
     id: 37,
@@ -909,6 +944,7 @@ let Object = [
     available: 80,
     star: 5,
     like: false,
+    card: false,
   },
   {
     id: 38,
@@ -933,6 +969,7 @@ let Object = [
     available: null,
     star: 3,
     like: false,
+    card: false,
   },
   {
     id: 39,
@@ -954,6 +991,7 @@ let Object = [
     available: null,
     star: 5,
     like: false,
+    card: false,
   },
   {
     id: 40,
@@ -983,6 +1021,7 @@ let Object = [
     available: 87,
     star: 4,
     like: false,
+    card: false,
   },
 ];
 

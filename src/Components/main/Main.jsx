@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Object from "../../Object/Object";
 import About from "../About/About";
@@ -21,17 +21,37 @@ import "./main.scss";
 function Main() {
   let [obj, setObj] = useState([...Object]);
   let [card, setCard] = useState([]);
+  let [wish, setWish] = useState([]);
+
+  useEffect(() => {
+    setWish([...obj.filter((el) => el.like === true)]);
+    setCard([...obj.filter((el) => el.card === true)]);
+  }, [obj]);
   return (
     <div className="root-child">
       <Header />
 
-      <MainHeader />
+      <MainHeader
+        obj={obj}
+        setObj={setObj}
+        setCard={setCard}
+        card={card}
+        wish={wish}
+        setWish={setWish}
+      />
       <Navbar />
       <Routes>
         <Route
           path="Quickview/:id"
           element={
-            <FoodItem setCard={setCard} card={card} obj={obj} setObj={setObj} />
+            <FoodItem
+              setCard={setCard}
+              card={card}
+              wish={wish}
+              setWish={setWish}
+              obj={obj}
+              setObj={setObj}
+            />
           }
         />
         <Route
@@ -41,7 +61,14 @@ function Main() {
               <Hero />
               <About />
               <Categories />
-              <Products setCard={setCard} card={card} />
+              <Products
+                setWish={setWish}
+                wish={wish}
+                setCard={setCard}
+                card={card}
+                obj={obj}
+                setObj={setObj}
+              />
               <MyCart card={card} setCard={setCard} />
 
               <Sales />

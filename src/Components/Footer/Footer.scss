@@ -140,8 +140,15 @@
     gap: 10px;
   }
   .footer__list-box {
-    flex-direction: column;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
     align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  .footer__title-labtop {
+    display: none;
   }
   .footer__boxing {
     flex-direction: column;

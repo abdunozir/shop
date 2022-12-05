@@ -41,7 +41,7 @@ function Footer() {
                 </Link>
               </li>
             </ul>
-            <h3 className="footer__title">Newsletter</h3>
+            <h3 className="footer__title footer__title-labtop">Newsletter</h3>
             <div className="footer__box">
               <input
                 className="footer__input"
